@@ -662,7 +662,7 @@ let totalBeatsElapsed = 0;
 
 function setup() {
     noCanvas();
-    audioEl = createAudio('/What_Angel_Wakes_Me.mp3');
+    audioEl = createAudio('https://raw.githubusercontent.com/n3xta/image-hosting/main/img/What_Angel_Wakes_Me.mp3');
     audioEl.showControls();
   
     lyricDiv = createDiv('');
