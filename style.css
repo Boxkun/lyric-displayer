@@ -1,0 +1,13 @@
+html, body {
+    margin: 10;
+    padding: 0;
+  }
+  canvas {
+    display: block;
+  }
+
+audio {
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+    width: 70%;
+    height: 50px;
+}
