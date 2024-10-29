@@ -13,8 +13,7 @@ body, html {
   z-index: 0;
 }
 
-/*
-#overlay-image {
+/* #overlay-image {
   position: relative;
   top: 0;
   left: 0;
@@ -23,19 +22,19 @@ body, html {
   opacity: 0.5;
   z-index: 20;
   pointer-events: none; 
-}
-  */
+} */
+
 
 div {
   position: absolute;
-  top: 150px;
-  left: 135px;
-  z-index: 10; 
+  top: 14.9vh;
+  left: 7vw;
+  font-size: 9.43vw;
+  line-height: 22.2vh; /* or 165 px*/
+  letter-spacing: -0.3vw;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
-  font-size: 180px;
-  line-height: 215px;
-  letter-spacing: -7px;
+  font-feature-settings: 'palt';
 }
 
 /*
@@ -47,6 +46,7 @@ div {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
   font-style: normal;
+  font-feature-settings: 'palt';
 }
 
 audio {
@@ -55,5 +55,5 @@ audio {
   filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
   width: 70%;
   height: 70px;
-  z-index: 5;
+  z-index: 30;
 }
