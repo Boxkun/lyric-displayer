@@ -8,23 +8,23 @@ let lyrics =
     "beats": 24
   },
   {
-    "text": "黒塗り世界宛て書簡",
+    "text": "黒塗り<br>世界宛て<br>書簡",
     "beats": 32
   },
   {
-    "text": "■■■■■■も言えないこんな世の中じゃ",
+    "text": "■■■■■■も<br>言えないこんな<br>世の中じゃ",
     "beats": 16
   },
   {
-    "text": "■の盃を呷ったほうがマシだね",
+    "text": "■の盃を<br>呷ったほうが<br>マシだね",
     "beats": 16
   },
   {
-    "text": "そしてクオリアを持った■■■として蘇り",
+    "text": "そしてクオリアを<br>持った■■■<br>として蘇り",
     "beats": 16
   },
   {
-    "text": "■■ぎれなかった夜をくべる", //怎么词不一样
+    "text": "■■ぎれなかった<br>夜を<br>くべる",
     "beats": 8
   },
   {
@@ -32,19 +32,19 @@ let lyrics =
     "beats": 8
   },
   {
-    "text": "451度じゃ燃やし尽くせない輝きを見たくて",
+    "text": "451度じゃ<br>燃やし尽くせない<br>輝きを見たくて",
     "beats": 16
   },
   {
-    "text": "アルファベットな僕ら綴るのさ言葉取り戻すため",
+    "text": "アルファベットな<br>僕ら綴るのさ<br>言葉取り戻すため",
     "beats": 16
   },
   {
-    "text": "星空の見えない地球発4時のニュース",
+    "text": "星空の見えない<br>地球発4時の<br>ニュース",
     "beats": 16
   },
   {
-    "text": "ピークレベルを超えた脳の寄生を今祓う",
+    "text": "ピークレベルを<br>超えた脳の<br>寄生を今祓う",
     "beats": 14
   },
   {
@@ -56,11 +56,11 @@ let lyrics =
     "beats": 4
   },
   {
-    "text": "■後2週間■■■かけた身体が目を覚まし",
+    "text": "■後2週間<br>■■■かけた<br>身体が目を覚まし",
     "beats": 12
   },
   {
-    "text": "液化したピアノと夜を明かす",
+    "text": "液化したピアノと<br>夜を<br>明かす",
     "beats": 8
   },
   {
@@ -68,51 +68,55 @@ let lyrics =
     "beats": 4
   },
   {
-    "text": "黄泉に行ってなお生まれ変わり続ける言の霊に託して",
+    "text": "黄泉に行ってなお<br>生まれ変わり続ける<br>言の霊に託して",
     "beats": 16
   },
   {
-    "text": "僕は叫ぶのさこの黒塗りの世界の裏各地へ",
+    "text": "僕は叫ぶのさ<br>この黒塗りの<br>世界の裏各地へ",
     "beats": 16
   },
   {
-    "text": "■ぬも■むも■■いも■くも愛す",
+    "text": "■ぬも■むも<br>■■いも<br>■くも愛す",
     "beats": 8
   },
   {
-    "text": "■かれた■違いの■■の詩",
+    "text": "■かれた<br>■違いの<br>■■の詩",
     "beats": 8
   },
   {
-    "text": "■■に■き■■され■った言葉を",
+    "text": "■■に<br>■き■■され<br>■った言葉を",
     "beats": 8
   },
   {
-    "text": "■■った■れ者が■■してく",
+    "text": "■■った<br>■れ者が<br>■■してく",
     "beats": 8
   },
   {
-    "text": "■■以外■んで■■った■■溜めで",
+    "text": "■■以外<br>■んで■■った<br>■■溜めで",
     "beats": 8
   },
   {
-    "text": "■■も■■も■■も伝えられなきゃ",
+    "text": "■■も■■も<br>■■も<br>伝えられなきゃ",
     "beats": 8
   },
   {
-    "text": "■んでも■んでも■■切れないから",
+    "text": "■んでも<br>■んでも<br>■■きれないから",
     "beats": 8
   },
   {
-    "text": "世界に送る黒塗りのラブレター",
-    "beats": 8
+    "text": "世界に送る<br>黒塗りの<br>ラブレター",
+    "beats": 4
   },
   {
-    "text": "■■■■■■■■■■■■■■■",
+    "text": "■■■■■<br>■■■■<br>■■■■■■",
+    "beats": 4
+  },
+  {
+    "text": "■■■<br>■■■■<br>■■",
     "beats": 32
   },
   {
-    "text": "■■■■■■■■■■■■■■■歌 重音テト",
+    "text": "■■■<br>■■■■<br>■■歌 重音テト",
     "beats": 32
   }
 ]
@@ -122,17 +126,20 @@ let beatDuration = 60 / bpm;
 let totalBeatsElapsed = 0;
 
 function setup() {
-    noCanvas();
     audioEl = createAudio('https://raw.githubusercontent.com/n3xta/image-hosting/main/audio/letter_to_the_black_world.mp3');
     audioEl.showControls();
   
     lyricDiv = createDiv('');
-    lyricDiv.style('font-size', '48px');
-    lyricDiv.style('padding', '10px');
-    lyricDiv.style('margin', 'auto');
+    lyricDiv.addClass('lyric-text');
+    //lyricDiv.style('font-size', '48px');
+    //lyricDiv.style('padding', '10px');
+    //lyricDiv.style('margin', 'auto');
   
     audioEl.play();
     setInterval(updateLyrics, 100); 
+
+    createCanvas(windowWidth, windowHeight);
+    background(223,223,223,255);
   }
   
 function updateLyrics() {
