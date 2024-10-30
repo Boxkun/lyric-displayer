@@ -64,3 +64,11 @@ span {
   transform: translateY(50px); /* Start with offset for animation */
   z-index: 20;
 }
+
+span.block {
+  opacity: 0;
+  letter-spacing: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 7.2vw;
+}

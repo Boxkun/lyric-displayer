@@ -12,23 +12,23 @@ let lyrics =
     "beats": 32
   },
   {
-    "text": "■■■■■■",
+    "text": "██████",
     "beats": 3
   },
   {
-    "text": "■■■■■■も<br>言えないこんな<br>世の中じゃ",
+    "text": "███████も<br>言えないこんな<br>世の中じゃ",
     "beats": 13
   },
   {
-    "text": "■の盃を<br>呷ったほうが<br>マシだね",
+    "text": "██の盃を<br>呷ったほうが<br>マシだね",
     "beats": 16
   },
   {
-    "text": "そしてクオリアを<br>持った■■■<br>として蘇り",
+    "text": "そしてクオリアを<br>持った████<br>として蘇り",
     "beats": 16
   },
   {
-    "text": "■■ぎれなかった<br>夜を<br>くべる",
+    "text": "██ぎれなかった<br>夜を<br>くべる",
     "beats": 8
   },
   {
@@ -56,11 +56,11 @@ let lyrics =
     "beats": 2
   },
   {
-    "text": "■後2週間",
+    "text": "█後2週間",
     "beats": 4
   },
   {
-    "text": "■後2週間<br>■■■かけた<br>身体が目を覚まし",
+    "text": "█後2週間<br>███かけた<br>身体が目を覚まし",
     "beats": 12
   },
   {
@@ -80,31 +80,31 @@ let lyrics =
     "beats": 16
   },
   {
-    "text": "■ぬも■むも<br>■■いも<br>■くも愛す",
+    "text": "█ぬも█むも<br>██いも<br>█くも愛す",
     "beats": 8
   },
   {
-    "text": "■かれた<br>■違いの<br>■■の詩",
+    "text": "█かれた<br>█違いの<br>██の詩",
     "beats": 8
   },
   {
-    "text": "■■に<br>■き■■され<br>■った言葉を",
+    "text": "██に<br>█き██され<br>█った言葉を",
     "beats": 8
   },
   {
-    "text": "■■った<br>■れ者が<br>■■してく",
+    "text": "██った<br>█れ者が<br>██してく",
     "beats": 8
   },
   {
-    "text": "■■以外<br>■んで■■った<br>■■溜めで",
+    "text": "██以外<br>█んで██った<br>██溜めで",
     "beats": 8
   },
   {
-    "text": "■■も■■も<br>■■も<br>伝えられなきゃ",
+    "text": "██も██も<br>██も<br>伝えられなきゃ",
     "beats": 8
   },
   {
-    "text": "■んでも<br>■んでも<br>■■きれないから",
+    "text": "█んでも<br>█んでも<br>██きれないから",
     "beats": 8
   },
   {
@@ -112,15 +112,15 @@ let lyrics =
     "beats": 4
   },
   {
-    "text": "■■■■■<br>■■■■<br>■■■■■■",
+    "text": "█████<br>████<br>██████",
     "beats": 4
   },
   {
-    "text": "■■■<br>■■■■<br>■■",
+    "text": "███<br>████<br>██",
     "beats": 32
   },
   {
-    "text": "■■■<br>■■■■<br>■■歌 重音テト",
+    "text": "███<br>████<br>██歌 重音テト",
     "beats": 32
   }
 ]
@@ -144,21 +144,22 @@ function setup() {
 
     createCanvas(windowWidth, windowHeight);
     background(223,223,223,255);
-  }
+}
   
 function updateLyrics() {
     let currentTime = audioEl.time();
     let totalBeats = Math.floor(currentTime / beatDuration);
 
-let accumulatedBeats = 0;
-    for (let i = 0; i < lyrics.length; i++) {
-        accumulatedBeats += lyrics[i].beats;
-        if (totalBeats < accumulatedBeats) {
-        showLyric(lyrics[i].text);
-        break;
+    let accumulatedBeats = 0;
+        for (let i = 0; i < lyrics.length; i++) {
+            accumulatedBeats += lyrics[i].beats;
+            if (totalBeats < accumulatedBeats) {
+            showLyric(lyrics[i].text);
+            break;
+            }
         }
-    }
 }
+
 
 // function showLyric(lyric) {
 //   if (lyric !== currentLyric) {
@@ -173,16 +174,19 @@ function showLyric(lyric) {
 
       lyricDiv.html('');
 
-      // keep <br> 
       let chars = lyric.split(/(<br>)/).map(part => {
-          if (part === '<br>') {
-              return part; 
-          }
-          // Wrap other characters in <span> for animation
-          return part.split('').map(char => `<span>${char}</span>`).join('');
-      }).join('');
+        if (part === '<br>') {
+            return part; 
+        }
+        return part.split('').map(char => {
+            if (char === '█') {
+                return `<span class="block">${char}</span>`;
+            }
+            return `<span>${char}</span>`;
+        }).join('');
+    }).join('');
 
-      lyricDiv.html(chars);
+    lyricDiv.html(chars);
 
       // magic
       anime({
