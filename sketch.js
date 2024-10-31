@@ -3,13 +3,13 @@ let lyricDiv;
 let currentLyric = '';
 let lyrics = 
 [
-  {
-    "text": " ",
-    "beats": 24
-  },
+  // {
+  //   "text": " ",
+  //   "beats": 24
+  // },
   {
     "text": "黒塗り<br>世界宛て<br>書簡",
-    "beats": 32
+    "beats": 56
   },
   {
     "text": "██████",
@@ -24,7 +24,7 @@ let lyrics =
     "beats": 16
   },
   {
-    "text": "そしてクオリアを<br>持った████<br>として蘇り",
+    "text": "そしてクオリアを<br>持った████<br>として蘇り", //8+8
     "beats": 16
   },
   {
@@ -56,12 +56,8 @@ let lyrics =
     "beats": 2
   },
   {
-    "text": "█後2週間",
-    "beats": 4
-  },
-  {
-    "text": "█後2週間<br>███かけた<br>身体が目を覚まし",
-    "beats": 12
+    "text": "█後2週間<br>███かけた<br>身体が目を覚まし", //4+10
+    "beats": 14,
   },
   {
     "text": "液化したピアノと<br>夜を<br>明かす",
@@ -80,31 +76,31 @@ let lyrics =
     "beats": 16
   },
   {
-    "text": "█ぬも█むも<br>██いも<br>█くも愛す",
+    "text": "█ぬも█むも<br>██いも<br>█くも愛す", //每个都间隔2拍
     "beats": 8
   },
   {
-    "text": "█かれた<br>█違いの<br>██の詩",
+    "text": "█かれた<br>█違いの<br>██の詩", //每个都间隔2拍
     "beats": 8
   },
   {
-    "text": "██に<br>█き██され<br>█った言葉を",
+    "text": "██に<br>█き██され<br>█った言葉を", //每个都间隔2拍
     "beats": 8
   },
   {
-    "text": "██った<br>█れ者が<br>██してく",
+    "text": "██った<br>█れ者が<br>██してく", //每个都间隔2拍
     "beats": 8
   },
   {
-    "text": "██以外<br>█んで██った<br>██溜めで",
+    "text": "██以外<br>█んで██った<br>██溜めで", //每个都间隔2拍
     "beats": 8
   },
   {
-    "text": "██も██も<br>██も<br>伝えられなきゃ",
+    "text": "██も██も<br>██も<br>伝えられなきゃ", //每个都间隔2拍
     "beats": 8
   },
   {
-    "text": "█んでも<br>█んでも<br>██きれないから",
+    "text": "█んでも<br>█んでも<br>██きれないから", //每个都间隔2拍
     "beats": 8
   },
   {
@@ -129,6 +125,8 @@ let bpm = 185;
 let beatDuration = 60 / bpm;
 let totalBeatsElapsed = 0;
 
+let overlayRemoved = false; // 避免多次移除遮罩
+
 function setup() {
     audioEl = createAudio('https://raw.githubusercontent.com/n3xta/image-hosting/main/audio/letter_to_the_black_world.mp3');
     audioEl.showControls();
@@ -150,6 +148,12 @@ function updateLyrics() {
     let currentTime = audioEl.time();
     let totalBeats = Math.floor(currentTime / beatDuration);
 
+    if (totalBeats >= 23 && !overlayRemoved) { //考虑这边改一下时机
+      const overlay = document.getElementById('black-overlay');
+      overlay.remove();
+      overlayRemoved = true;
+    }
+
     let accumulatedBeats = 0;
         for (let i = 0; i < lyrics.length; i++) {
             accumulatedBeats += lyrics[i].beats;
@@ -159,7 +163,6 @@ function updateLyrics() {
             }
         }
 }
-
 
 // function showLyric(lyric) {
 //   if (lyric !== currentLyric) {
