@@ -1,133 +1,24 @@
 let audioEl;
 let lyricDiv;
 let currentLyric = '';
-let lyrics = 
-[
-  // {
-  //   "text": " ",
-  //   "beats": 24
-  // },
-  {
-    "text": "黒塗り<br>世界宛て<br>書簡",
-    "beats": 56
-  },
-  {
-    "text": "██████",
-    "beats": 3
-  },
-  {
-    "text": "███████も<br>言えないこんな<br>世の中じゃ",
-    "beats": 13
-  },
-  {
-    "text": "██の盃を<br>呷ったほうが<br>マシだね",
-    "beats": 16
-  },
-  {
-    "text": "そしてクオリアを<br>持った████<br>として蘇り", //8+8
-    "beats": 16
-  },
-  {
-    "text": "██ぎれなかった<br>夜を<br>くべる",
-    "beats": 8
-  },
-  {
-    "text": " ",
-    "beats": 8
-  },
-  {
-    "text": "451度じゃ<br>燃やし尽くせない<br>輝きを見たくて",
-    "beats": 16
-  },
-  {
-    "text": "アルファベットな<br>僕ら綴るのさ<br>言葉取り戻すため",
-    "beats": 16
-  },
-  {
-    "text": "星空の見えない<br>地球発4時の<br>ニュース",
-    "beats": 16
-  },
-  {
-    "text": "ピークレベルを<br>超えた脳の<br>寄生を今祓う",
-    "beats": 14
-  },
-  {
-    "text": "刹那",
-    "beats": 2
-  },
-  {
-    "text": "█後2週間<br>███かけた<br>身体が目を覚まし", //4+10
-    "beats": 14,
-  },
-  {
-    "text": "液化したピアノと<br>夜を<br>明かす",
-    "beats": 8
-  },
-  {
-    "text": " ",
-    "beats": 4
-  },
-  {
-    "text": "黄泉に行ってなお<br>生まれ変わり続ける<br>言の霊に託して",
-    "beats": 16
-  },
-  {
-    "text": "僕は叫ぶのさ<br>この黒塗りの<br>世界の裏各地へ",
-    "beats": 16
-  },
-  {
-    "text": "█ぬも█むも<br>██いも<br>█くも愛す", //每个都间隔2拍
-    "beats": 8
-  },
-  {
-    "text": "█かれた<br>█違いの<br>██の詩", //每个都间隔2拍
-    "beats": 8
-  },
-  {
-    "text": "██に<br>█き██され<br>█った言葉を", //每个都间隔2拍
-    "beats": 8
-  },
-  {
-    "text": "██った<br>█れ者が<br>██してく", //每个都间隔2拍
-    "beats": 8
-  },
-  {
-    "text": "██以外<br>█んで██った<br>██溜めで", //每个都间隔2拍
-    "beats": 8
-  },
-  {
-    "text": "██も██も<br>██も<br>伝えられなきゃ", //每个都间隔2拍
-    "beats": 8
-  },
-  {
-    "text": "█んでも<br>█んでも<br>██きれないから", //每个都间隔2拍
-    "beats": 8
-  },
-  {
-    "text": "世界に送る<br>黒塗りの<br>ラブレター",
-    "beats": 4
-  },
-  {
-    "text": "█████<br>████<br>██████",
-    "beats": 4
-  },
-  {
-    "text": "███<br>████<br>██",
-    "beats": 32
-  },
-  {
-    "text": "███<br>████<br>██歌 重音テト",
-    "beats": 32
-  }
-]
+let lyrics = [];
 
 let bpm = 185;
 let beatDuration = 60 / bpm;
 let totalBeatsElapsed = 0;
 
-let overlayRemoved = false; // 避免多次移除遮罩
+let overlayRemoved = false;
 
 function setup() {
+
+    fetch('lib/processed_lyrics.json')
+    .then(response => response.json())
+    .then(data => {
+        lyrics = data;
+        console.log("Lyrics loaded:", lyrics);
+    })
+    .catch(error => console.error("Error loading lyrics:", error));
+
     audioEl = createAudio('https://raw.githubusercontent.com/n3xta/image-hosting/main/audio/letter_to_the_black_world.mp3');
     audioEl.showControls();
   
@@ -142,6 +33,7 @@ function setup() {
 
     createCanvas(windowWidth, windowHeight);
     background(223,223,223,255);
+
 }
   
 function updateLyrics() {
@@ -174,37 +66,55 @@ function updateLyrics() {
 function showLyric(lyric) {
   if (lyric !== currentLyric) {
       currentLyric = lyric;
-
       lyricDiv.html('');
 
-      let chars = lyric.split(/(<br>)/).map(part => {
+      let chars = lyric.split(/(<br>|<span[^>]*>.*?<\/span>)/).map(part => {
         if (part === '<br>') {
-            return part; 
+            return part;
+        } else if (part.match(/<span[^>]*>.*?<\/span>/)) {
+            return part;
+        } else {
+            return part.split('').map(char => {
+                return `<span>${char}</span>`;
+            }).join('');
         }
-        return part.split('').map(char => {
-            if (char === '█') {
-                return `<span class="block">${char}</span>`;
-            }
-            return `<span>${char}</span>`;
-        }).join('');
     }).join('');
 
     lyricDiv.html(chars);
+    console.log(lyricDiv.html());
 
-      // magic
-      anime({
-          targets: 'span',
-          opacity: [0, 1],
-          duration: 1,
-          delay: anime.stagger(35),
-      });
+    anime({
+        targets: 'span:not([class^="block-"])',
+        opacity: [0, 1],
+        duration: 1,
+        delay: anime.stagger(35),
+    });
 
-      anime({
-          targets: 'span',
-          translateX: [50, 0],
-          delay: anime.stagger(35),
-          duration: 500,
-          easing: 'easeOutExpo'
-      });
-  }
+    anime({
+        targets: 'span:not([class^="block-"])',
+        translateX: [50, 0],
+        delay: anime.stagger(35),
+        duration: 500,
+        easing: 'easeOutExpo'
+    });
+
+    anime({
+      targets: '.block-1',
+      opacity: 1,
+      width: '20px',
+      height: '20px',
+      easing: 'easeOutExpo',
+      duration: 800,
+    });
+
+    anime({
+      targets: '.block-2',
+      opacity: 1,
+      width: '20px', // 从 0 到目标宽度
+      height: '20px',
+      easing: 'easeOutExpo',
+      duration: 0,
+    });
+
+}
 }
