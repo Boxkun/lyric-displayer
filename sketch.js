@@ -66,8 +66,9 @@ function updateLyrics() {
 function showLyric(lyric) {
   if (lyric !== currentLyric) {
       currentLyric = lyric;
-      lyricDiv.html('');
+      lyricDiv.html(''); // only happens if NOT clearing
 
+      // if not clearing, add opening span with 'new' classname
       let chars = lyric.split(/(<br>|<span[^>]*>.*?<\/span>)/).map(part => {
         if (part === '<br>') {
             return part;
@@ -79,12 +80,14 @@ function showLyric(lyric) {
             }).join('');
         }
     }).join('');
+    // if not clearing, add closing span
+    // actualHtml = openingSpan + chars + closingSpan
 
-    lyricDiv.html(chars);
+    lyricDiv.html(chars); // then actualHtml goes here
     console.log(lyricDiv.html());
 
     anime({
-        targets: 'span:not([class^="block-"])',
+        targets: 'span:not([class^="block-"])', // instead of selecting ALL spans, select only CHILDREN of "new:"　.new > *"
         opacity: [0, 1],
         duration: 1,
         delay: anime.stagger(35),
@@ -102,7 +105,6 @@ function showLyric(lyric) {
       targets: '.block-1',
       opacity: 1,
       width: '20px',
-      height: '20px',
       easing: 'easeOutExpo',
       duration: 800,
     });
@@ -111,10 +113,19 @@ function showLyric(lyric) {
       targets: '.block-2',
       opacity: 1,
       width: '20px', // 从 0 到目标宽度
-      height: '20px',
       easing: 'easeOutExpo',
       duration: 0,
     });
 
+    anime({
+        targets: '.block-3',
+        opacity: 1,
+        width: '20px', // 从 0 到目标宽度
+        easing: 'easeOutExpo',
+        duration: 0,
+      });
+
+
+      
 }
 }

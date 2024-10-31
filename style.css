@@ -62,17 +62,8 @@ audio {
 
 span {
   display: inline-block;
-  transform: translateY(50px); /* Start with offset for animation */
   z-index: 20;
 }
-
-/* span.block {
-  opacity: 0;
-  letter-spacing: 0;
-  background: transparent;
-  color: black;
-  font-size: 7.2vw;
-} */
 
 #black-overlay {
   position: fixed;
@@ -87,15 +78,10 @@ span {
   pointer-events: none; /* 避免干扰点击事件 */
 }
 
-/* [class^="block-"] {
+span[class^="block-"] {
   opacity: 1;
-  color: black;
+  background-color: black;
   width: 0;
-  height: 20px;
+  height: 40px;
   display: inline-block;
-} */
-
-/* span[class^="block-"] {
-  opacity: 1;
-  display: inline-block; 
-} */
+}

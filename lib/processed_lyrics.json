@@ -16,11 +16,16 @@
         "beats": 16
     },
     {
-        "text": "そしてクオリアを<br>持った<span class=\"block-4\"></span><br>として蘇り",
-        "beats": 16
+        "text": "そしてクオリアを<br>持った<span class=\"block-4\"></span>",
+        "beats": 4
     },
     {
-        "text": "<span class=\"block-5\"></span>ぎれなかった<br>夜を<br>くべる",
+        "text": "<br>として蘇り",
+        "isNew": true,
+        "beats": 12
+    },
+    {
+        "text": "<span class=\"block-1\"></span>ぎれなかった<br>夜を<br>くべる",
         "beats": 8
     },
     {
