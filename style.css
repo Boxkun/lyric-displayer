@@ -82,6 +82,8 @@ span[class^="block-"] {
   opacity: 1;
   background-color: black;
   width: 0;
-  height: 40px;
+  height: 10vw;
+  /* -ms-transform: translateY(50%); */
+  transform: translateY(15%);
   display: inline-block;
 }

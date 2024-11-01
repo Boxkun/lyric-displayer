@@ -16,16 +16,11 @@
         "beats": 16
     },
     {
-        "text": "そしてクオリアを<br>持った<span class=\"block-4\"></span>",
-        "beats": 4
+        "text": "そしてクオリアを<br>持った<span class=\"block-4\"></span><br>として蘇り",
+        "beats": 16
     },
     {
-        "text": "<br>として蘇り",
-        "isNew": true,
-        "beats": 12
-    },
-    {
-        "text": "<span class=\"block-1\"></span>ぎれなかった<br>夜を<br>くべる",
+        "text": "<span class=\"block-5\"></span>きれなかった<br>夜を<br>くべる",
         "beats": 8
     },
     {
@@ -53,12 +48,8 @@
         "beats": 2
     },
     {
-        "text": "<span class=\"block-6\"></span>後2週間",
-        "beats": 4
-    },
-    {
-        "text": "<span class=\"block-7\"></span>後2週間<br><span class=\"block-8\"></span>かけた<br>身体が目を覚まし",
-        "beats": 10
+        "text": "<span class=\"block-6\"></span>後2週間<br><span class=\"block-7\"></span>かけた<br>身体が目を覚まし",
+        "beats": 14
     },
     {
         "text": "液化したピアノと<br>夜を<br>明かす",
@@ -77,31 +68,31 @@
         "beats": 16
     },
     {
-        "text": "<span class=\"block-9\"></span>ぬも<span class=\"block-10\"></span>むも<br><span class=\"block-20\"></span>いも<br><span class=\"block-10\"></span>くも愛す",
+        "text": "<span class=\"block-8\"></span>ぬも<span class=\"block-8\"></span>むも<br><span class=\"block-9\"></span>いも<br><span class=\"block-8\"></span>くも愛す",
         "beats": 8
     },
     {
-        "text": "<span class=\"block-10\"></span>かれた<br><span class=\"block-10\"></span>違いの<br><span class=\"block-20\"></span>の詩",
+        "text": "<span class=\"block-10\"></span>かれた<br><span class=\"block-11\"></span>違いの<br><span class=\"block-12\"></span>の詩",
         "beats": 8
     },
     {
-        "text": "<span class=\"block-20\"></span>に<br><span class=\"block-10\"></span>き<span class=\"block-20\"></span>され<br><span class=\"block-10\"></span>った言葉を",
+        "text": "<span class=\"block-12\"></span>に<br><span class=\"block-8\"></span>き<span class=\"block-9\"></span>され<br><span class=\"block-8\"></span>った言葉を",
         "beats": 8
     },
     {
-        "text": "<span class=\"block-20\"></span>った<br><span class=\"block-10\"></span>れ者が<br><span class=\"block-20\"></span>してく",
+        "text": "<span class=\"block-3\"></span>った<br><span class=\"block-8\"></span>れ者が<br><span class=\"block-12\"></span>してく",
         "beats": 8
     },
     {
-        "text": "<span class=\"block-20\"></span>以外<br><span class=\"block-10\"></span>んで<span class=\"block-20\"></span>った<br><span class=\"block-20\"></span>溜めで",
+        "text": "<span class=\"block-13\"></span>以外<br><span class=\"block-8\"></span>んで<span class=\"block-13\"></span>った<br><span class=\"block-13\"></span>溜めで",
         "beats": 8
     },
     {
-        "text": "<span class=\"block-20\"></span>も<span class=\"block-20\"></span>も<br><span class=\"block-20\"></span>も<br>伝えられなきゃ",
+        "text": "<span class=\"block-9\"></span>も<span class=\"block-9\"></span>も<br><span class=\"block-9\"></span>も<br>伝えられなきゃ",
         "beats": 8
     },
     {
-        "text": "<span class=\"block-10\"></span>んでも<br><span class=\"block-10\"></span>んでも<br><span class=\"block-20\"></span>きれないから",
+        "text": "<span class=\"block-8\"></span>んでも<br><span class=\"block-8\"></span>んでも<br><span class=\"block-9\"></span>きれないから",
         "beats": 8
     },
     {
@@ -109,15 +100,15 @@
         "beats": 4
     },
     {
-        "text": "<span class=\"block-50\"></span><br><span class=\"block-40\"></span><br><span class=\"block-60\"></span>",
+        "text": "<span class=\"block-14\"></span><br><span class=\"block-15\"></span><br><span class=\"block-14\"></span>",
         "beats": 4
     },
     {
-        "text": "<span class=\"block-30\"></span><br><span class=\"block-40\"></span><br><span class=\"block-20\"></span>",
+        "text": "<span class=\"block-16\"></span><br><span class=\"block-17\"></span><br><span class=\"block-18\"></span>",
         "beats": 32
     },
     {
-        "text": "<span class=\"block-30\"></span><br><span class=\"block-40\"></span><br><span class=\"block-20\"></span>歌 重音テト",
+        "text": "歌<br>重音テト",
         "beats": 32
     }
 ]

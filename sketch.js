@@ -104,7 +104,7 @@ function showLyric(lyric) {
     anime({
       targets: '.block-1',
       opacity: 1,
-      width: '20px',
+      width: '50vw',
       easing: 'easeOutExpo',
       duration: 800,
     });
@@ -112,7 +112,7 @@ function showLyric(lyric) {
     anime({
       targets: '.block-2',
       opacity: 1,
-      width: '20px', // 从 0 到目标宽度
+      width: '50vw',
       easing: 'easeOutExpo',
       duration: 0,
     });
@@ -120,12 +120,137 @@ function showLyric(lyric) {
     anime({
         targets: '.block-3',
         opacity: 1,
-        width: '20px', // 从 0 到目标宽度
+        width: '14vw',
         easing: 'easeOutExpo',
-        duration: 0,
-      });
+        duration: 500,
+        });
 
+    anime({
+        targets: '.block-4',
+        opacity: 1,
+        width: '27vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });
 
-      
+    anime({
+        targets: '.block-5',
+        opacity: 1,
+        width: '18vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+
+    anime({
+        targets: '.block-6',
+        opacity: 1,
+        width: '9vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+
+    anime({
+        targets: '.block-7',
+        opacity: 1,
+        width: '23vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+    
+    anime({
+        targets: '.block-8',
+        opacity: 1,
+        width: '9vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+        
+    //█ぬも█むも
+    //██いも
+    //█くも愛す
+    anime({
+        targets: '.block-9',
+        opacity: 1,
+        width: '17vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+    
+    anime({
+        targets: '.block-10',
+        opacity: 1,
+        width: '8vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+
+    //█かれた
+    //█違い
+    //██の詩
+    anime({
+        targets: '.block-11',
+        opacity: 1,
+        width: '9vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+
+    anime({
+        targets: '.block-12',
+        opacity: 1,
+        width: '18vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+
+    
+    anime({
+        targets: '.block-13',
+        opacity: 1,
+        width: '16vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+    
+    //世界に送る<br>黒塗りの<br>ラブレター
+    anime({
+        targets: '.block-14',
+        opacity: 1,
+        width: '45vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        }); 
+
+    anime({
+        targets: '.block-15',
+        opacity: 1,
+        width: '35vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+
+    anime({
+        targets: '.block-16',
+        opacity: 1,
+        width: '25vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        }); 
+
+    anime({
+        targets: '.block-17',
+        opacity: 1,
+        width: '35vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
+
+    anime({
+        targets: '.block-18',
+        opacity: 1,
+        width: '18vw',
+        easing: 'easeOutExpo',
+        duration: 500,
+        });  
 }
 }
