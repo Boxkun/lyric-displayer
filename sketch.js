@@ -37,10 +37,10 @@ function setup() {
 }
   
 function updateLyrics() {
-    let currentTime = audioEl.time();
+    let currentTime = audioEl.time() + 0.1;
     let totalBeats = Math.floor(currentTime / beatDuration);
 
-    if (totalBeats >= 23 && !overlayRemoved) { //考虑这边改一下时机
+    if (totalBeats >= 24 && !overlayRemoved) {
       const overlay = document.getElementById('black-overlay');
       overlay.remove();
       overlayRemoved = true;
@@ -120,7 +120,7 @@ function showLyric(lyric) {
     anime({
         targets: '.block-3',
         opacity: 1,
-        width: '14vw',
+        width: '15vw',
         easing: 'easeOutExpo',
         duration: 500,
         });

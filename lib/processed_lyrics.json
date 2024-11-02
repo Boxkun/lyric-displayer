@@ -1,7 +1,11 @@
 [
     {
         "text": "黒塗り<br>世界宛て<br>書簡",
-        "beats": 56
+        "beats": 55
+    },
+    {
+        "text": " ",
+        "beats": 1
     },
     {
         "text": "<span class=\"block-1\"></span>",
@@ -41,15 +45,15 @@
     },
     {
         "text": "ピークレベルを<br>超えた脳の<br>寄生を今祓う",
-        "beats": 14
+        "beats": 15
     },
     {
         "text": "刹那",
-        "beats": 2
+        "beats": 1
     },
     {
         "text": "<span class=\"block-6\"></span>後2週間<br><span class=\"block-7\"></span>かけた<br>身体が目を覚まし",
-        "beats": 14
+        "beats": 16
     },
     {
         "text": "液化したピアノと<br>夜を<br>明かす",
