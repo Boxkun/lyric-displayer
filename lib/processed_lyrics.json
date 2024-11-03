@@ -1,118 +1,277 @@
 [
     {
         "text": "黒塗り<br>世界宛て<br>書簡",
-        "beats": 55
+        "beats": 55,
+        "isNew": false
     },
     {
         "text": " ",
-        "beats": 1
+        "beats": 1,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-1\"></span>",
-        "beats": 3
+        "text": "<span class=\"block-50a\"></span>",
+        "beats": 3,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-2\"></span>も<br>言えないこんな<br>世の中じゃ",
-        "beats": 13
+        "text": "も<br>言えないこんな<br>世の中じゃ",
+        "beats": 13,
+        "isNew": true
     },
     {
-        "text": "<span class=\"block-3\"></span>の盃を<br>呷ったほうが<br>マシだね",
-        "beats": 16
+        "text": "<span class=\"block-15a\"></span>",
+        "beats": 1,
+        "isNew": false
     },
     {
-        "text": "そしてクオリアを<br>持った<span class=\"block-4\"></span><br>として蘇り",
-        "beats": 16
+        "text": "の盃を<br>呷ったほうが<br>マシだね",
+        "beats": 15,
+        "isNew": true
     },
     {
-        "text": "<span class=\"block-5\"></span>きれなかった<br>夜を<br>くべる",
-        "beats": 8
+        "text": "そしてクオリアを<br>持った",
+        "beats": 5,
+        "isNew": false
+    },
+    {
+        "text": "<span class=\"block-27a\"></span>",
+        "beats": 2,
+        "isNew": true
+    },
+    {
+        "text": "<br>として蘇り",
+        "beats": 9,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-18a\"></span>",
+        "beats": 1,
+        "isNew": false
+    },
+    {
+        "text": "きれなかった<br>夜を<br>くべる",
+        "beats": 7,
+        "isNew": true
     },
     {
         "text": " ",
-        "beats": 8
+        "beats": 8,
+        "isNew": false
     },
     {
         "text": "451度じゃ<br>燃やし尽くせない<br>輝きを見たくて",
-        "beats": 16
+        "beats": 16,
+        "isNew": false
     },
     {
         "text": "アルファベットな<br>僕ら綴るのさ<br>言葉取り戻すため",
-        "beats": 16
+        "beats": 16,
+        "isNew": false
     },
     {
         "text": "星空の見えない<br>地球発4時の<br>ニュース",
-        "beats": 16
+        "beats": 16,
+        "isNew": false
     },
     {
         "text": "ピークレベルを<br>超えた脳の<br>寄生を今祓う",
-        "beats": 15
+        "beats": 15,
+        "isNew": false
     },
     {
         "text": "刹那",
-        "beats": 1
+        "beats": 1,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-6\"></span>後2週間<br><span class=\"block-7\"></span>かけた<br>身体が目を覚まし",
-        "beats": 16
+        "text": "<span class=\"block-9a\"></span>",
+        "beats": 1,
+        "isNew": false
+    },
+    {
+        "text": "後2週間",
+        "beats": 3,
+        "isNew": true
+    },
+    {
+        "text": "<br><span class=\"block-23a\"></span>",
+        "beats": 2,
+        "isNew": true
+    },
+    {
+        "text": "かけた<br>身体が目を覚まし",
+        "beats": 10,
+        "isNew": true
     },
     {
         "text": "液化したピアノと<br>夜を<br>明かす",
-        "beats": 8
+        "beats": 8,
+        "isNew": false
     },
     {
         "text": " ",
-        "beats": 4
+        "beats": 4,
+        "isNew": false
     },
     {
         "text": "黄泉に行ってなお<br>生まれ変わり続ける<br>言の霊に託して",
-        "beats": 16
+        "beats": 16,
+        "isNew": false
     },
     {
         "text": "僕は叫ぶのさ<br>この黒塗りの<br>世界の裏各地へ",
-        "beats": 16
+        "beats": 16,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-8\"></span>ぬも<span class=\"block-8\"></span>むも<br><span class=\"block-9\"></span>いも<br><span class=\"block-8\"></span>くも愛す",
-        "beats": 8
+        "text": "<span class=\"block-9b\"></span>ぬも",
+        "beats": 1,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-10\"></span>かれた<br><span class=\"block-11\"></span>違いの<br><span class=\"block-12\"></span>の詩",
-        "beats": 8
+        "text": "<span class=\"block-9c\"></span>むも",
+        "beats": 1,
+        "isNew": true
     },
     {
-        "text": "<span class=\"block-12\"></span>に<br><span class=\"block-8\"></span>き<span class=\"block-9\"></span>され<br><span class=\"block-8\"></span>った言葉を",
-        "beats": 8
+        "text": "<br><span class=\"block-17a\"></span>いも",
+        "beats": 2,
+        "isNew": true
     },
     {
-        "text": "<span class=\"block-3\"></span>った<br><span class=\"block-8\"></span>れ者が<br><span class=\"block-12\"></span>してく",
-        "beats": 8
+        "text": "<br><span class=\"block-9d\"></span>くも愛す",
+        "beats": 4,
+        "isNew": true
     },
     {
-        "text": "<span class=\"block-13\"></span>以外<br><span class=\"block-8\"></span>んで<span class=\"block-13\"></span>った<br><span class=\"block-13\"></span>溜めで",
-        "beats": 8
+        "text": "<span class=\"block-8a\"></span>かれた",
+        "beats": 2,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-9\"></span>も<span class=\"block-9\"></span>も<br><span class=\"block-9\"></span>も<br>伝えられなきゃ",
-        "beats": 8
+        "text": "<br><span class=\"block-9d\"></span>違いの",
+        "beats": 2,
+        "isNew": true
     },
     {
-        "text": "<span class=\"block-8\"></span>んでも<br><span class=\"block-8\"></span>んでも<br><span class=\"block-9\"></span>きれないから",
-        "beats": 8
+        "text": "<br><span class=\"block-18b\"></span>の詩",
+        "beats": 4,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-18c\"></span>に<br>",
+        "beats": 1,
+        "isNew": false
+    },
+    {
+        "text": "<span class=\"block-9f\"></span>き",
+        "beats": 1,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-17b\"></span>され",
+        "beats": 2,
+        "isNew": true
+    },
+    {
+        "text": "<br><span class=\"block-9g\"></span>った言葉を",
+        "beats": 4,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-15b\"></span>った",
+        "beats": 2,
+        "isNew": false
+    },
+    {
+        "text": "<br><span class=\"block-9h\"></span>れ者が",
+        "beats": 2,
+        "isNew": true
+    },
+    {
+        "text": "<br><span class=\"block-18d\"></span>してく",
+        "beats": 4,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-16a\"></span>以外",
+        "beats": 2,
+        "isNew": false
+    },
+    {
+        "text": "<br><span class=\"block-9i\"></span>んで",
+        "beats": 1,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-16b\"></span>った",
+        "beats": 2,
+        "isNew": true
+    },
+    {
+        "text": "<br><span class=\"block-16c\"></span>溜めで",
+        "beats": 3,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-17c\"></span>も<span class=\"block-17d\"></span>も<br><span class=\"block-17e\"></span>も",
+        "beats": 4,
+        "isNew": false
+    },
+    {
+        "text": "<br>伝えられなきゃ",
+        "beats": 4,
+        "isNew": true
+    },
+    {
+        "text": "<span class=\"block-9j\"></span>んでも",
+        "beats": 2,
+        "isNew": false
+    },
+    {
+        "text": "<br><span class=\"block-9k\"></span>んでも",
+        "beats": 2,
+        "isNew": true
+    },
+    {
+        "text": "<br><span class=\"block-17f\"></span>きれないから",
+        "beats": 4,
+        "isNew": true
     },
     {
         "text": "世界に送る<br>黒塗りの<br>ラブレター",
-        "beats": 4
+        "beats": 4,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-14\"></span><br><span class=\"block-15\"></span><br><span class=\"block-14\"></span>",
-        "beats": 4
+        "text": "<span class=\"block-45a\"></span>",
+        "beats": 1,
+        "isNew": false
     },
     {
-        "text": "<span class=\"block-16\"></span><br><span class=\"block-17\"></span><br><span class=\"block-18\"></span>",
-        "beats": 32
+        "text": "<br><span class=\"block-35a\"></span>",
+        "beats": 1,
+        "isNew": true
+    },
+    {
+        "text": "<br><span class=\"block-45b\"></span>",
+        "beats": 2,
+        "isNew": true
+    },
+    {
+        "text": " ",
+        "beats": 2,
+        "isNew": false
+    },
+    {
+        "text": "<span class=\"block-25a\"></span><br><span class=\"block-35b\"></span><br><span class=\"block-18e\"></span>",
+        "beats": 30,
+        "isNew": false
     },
     {
         "text": "歌<br>重音テト",
-        "beats": 32
+        "beats": 32,
+        "isNew": true
     }
 ]

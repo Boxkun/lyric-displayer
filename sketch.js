@@ -24,9 +24,6 @@ function setup() {
   
     lyricDiv = createDiv('');
     lyricDiv.addClass('lyric-text');
-    //lyricDiv.style('font-size', '48px');
-    //lyricDiv.style('padding', '10px');
-    //lyricDiv.style('margin', 'auto');
   
     audioEl.play();
     setInterval(updateLyrics, 100); 
@@ -50,7 +47,9 @@ function updateLyrics() {
         for (let i = 0; i < lyrics.length; i++) {
             accumulatedBeats += lyrics[i].beats;
             if (totalBeats < accumulatedBeats) {
-            showLyric(lyrics[i].text);
+            let lyricObj = lyrics[i];
+            let isNew = lyricObj.isNew;
+            showLyric(lyricObj.text, isNew); // 为了把isNew传入，把原本的直接调用lyrics[i]变成了lyricsObj
             break;
             }
         }
@@ -63,194 +62,384 @@ function updateLyrics() {
 //   }
 // }
 
-function showLyric(lyric) {
-  if (lyric !== currentLyric) {
-      currentLyric = lyric;
-      lyricDiv.html(''); // only happens if NOT clearing
-
-      // if not clearing, add opening span with 'new' classname
-      let chars = lyric.split(/(<br>|<span[^>]*>.*?<\/span>)/).map(part => {
-        if (part === '<br>') {
-            return part;
-        } else if (part.match(/<span[^>]*>.*?<\/span>/)) {
-            return part;
-        } else {
-            return part.split('').map(char => {
-                return `<span>${char}</span>`;
-            }).join('');
+function showLyric(lyric, isNew) {
+    console.log('showLyric called with:', { lyric, isNew });
+    if (lyric !== currentLyric) {
+        currentLyric = lyric;
+        if (!isNew) {
+            console.log('Clearing lyricDiv because isNew is false');
+            lyricDiv.html(''); 
         }
-    }).join('');
-    // if not clearing, add closing span
-    // actualHtml = openingSpan + chars + closingSpan
 
-    lyricDiv.html(chars); // then actualHtml goes here
-    console.log(lyricDiv.html());
+        // 统一使用 'animate-me' 类，无论 isNew 的值
+        let spanClass = 'animate-me';
 
-    anime({
-        targets: 'span:not([class^="block-"])', // instead of selecting ALL spans, select only CHILDREN of "new:"　.new > *"
-        opacity: [0, 1],
-        duration: 1,
-        delay: anime.stagger(35),
-    });
+        let chars = lyric.split(/(<br>|<span[^>]*>.*?<\/span>)/).map(part => {
+            if (part === '<br>') {
+                return part;
+            } else if (part.match(/<span[^>]*>.*?<\/span>/)) {
+                return part;
+            } else {
+                return part.split('').map(char => {
+                    return `<span class="${spanClass}">${char}</span>`;
+                }).join('');
+            }
+        }).join('');
 
-    anime({
-        targets: 'span:not([class^="block-"])',
-        translateX: [50, 0],
-        delay: anime.stagger(35),
-        duration: 500,
-        easing: 'easeOutExpo'
-    });
+        if (isNew) {
+            lyricDiv.html(lyricDiv.html() + chars);
+        } else {
+            lyricDiv.html(chars);
+        }
 
-    anime({
-      targets: '.block-1',
-      opacity: 1,
-      width: '50vw',
-      easing: 'easeOutExpo',
-      duration: 800,
-    });
+        console.log(lyricDiv.html());
 
-    anime({
-      targets: '.block-2',
-      opacity: 1,
-      width: '50vw',
-      easing: 'easeOutExpo',
-      duration: 0,
-    });
-
-    anime({
-        targets: '.block-3',
-        opacity: 1,
-        width: '15vw',
-        easing: 'easeOutExpo',
-        duration: 500,
+        anime({
+            targets: 'span.animate-me',
+            opacity: [0, 1],
+            duration: 1,
+            delay: anime.stagger(35),
         });
 
-    anime({
-        targets: '.block-4',
-        opacity: 1,
-        width: '27vw',
-        easing: 'easeOutExpo',
-        duration: 500,
+        anime({
+            begin: function() {
+                document.querySelectorAll('span.animate-me').forEach(function(el) {
+                    el.classList.remove('animate-me');
+                });
+            },
+            targets: 'span.animate-me',
+            translateX: [50, 0],
+            delay: anime.stagger(35),
+            duration: 500,
+            easing: 'easeOutExpo',
         });
 
-    anime({
-        targets: '.block-5',
+        //■■■■■■も言えないこんな世の中じゃ
+        anime({
+        targets: '.block-50a',
         opacity: 1,
-        width: '18vw',
+        width: '50vw',
         easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        duration: 800,
+        });
 
-    anime({
-        targets: '.block-6',
-        opacity: 1,
-        width: '9vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
-
-    anime({
-        targets: '.block-7',
-        opacity: 1,
-        width: '23vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
-    
-    anime({
-        targets: '.block-8',
-        opacity: 1,
-        width: '9vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        //■の盃を呷ったほうがマシだね
+        anime({
+            targets: '.block-15a',
+            opacity: 1,
+            width: '15vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });
         
-    //█ぬも█むも
-    //██いも
-    //█くも愛す
-    anime({
-        targets: '.block-9',
-        opacity: 1,
-        width: '17vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        //そしてクオリアを持った■■■として蘇り
+        anime({
+            targets: '.block-27a',
+            opacity: 1,
+            width: '27vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });
+
+        //■■切れなかった夜をくべる
+        anime({
+            targets: '.block-18a',
+            opacity: 1,
+            width: '18vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        //刹那■後
+        //2週間■■■かけた身体が目を覚まし
+        anime({
+            targets: '.block-9a',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        anime({
+            targets: '.block-23a',
+            opacity: 1,
+            width: '23vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+        
+        //█ぬも█むも
+        //██いも
+        //█くも愛す
+
+        anime({
+            targets: '.block-9b',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+        
+        anime({
+            targets: '.block-9c',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+        
+        anime({
+            targets: '.block-17a',
+            opacity: 1,
+            width: '17vw',
+            easing: 'easeOutExpo',
+            duration: 700,
+            });  
+
+        anime({
+            targets: '.block-9d',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
+        
+        //█かれた
+        //█違い
+        //██の詩
+        anime({
+            targets: '.block-8a',
+            opacity: 1,
+            width: '8vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+        
+        anime({
+            targets: '.block-9e',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
+
+        anime({
+            targets: '.block-18b',
+            opacity: 1,
+            width: '18vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        //■■に
+        //■き■■され
+        //■った言葉を
+        anime({
+            targets: '.block-18c',
+            opacity: 1,
+            width: '18vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        anime({
+            targets: '.block-9f',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        anime({
+            targets: '.block-17b',
+            opacity: 1,
+            width: '17vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+        
+        anime({
+            targets: '.block-9g',
+            opacity: 1,
+            width: '18vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
+
+        //■■った
+        //■れ者が
+        //■■してく
+        anime({
+            targets: '.block-15b',
+            opacity: 1,
+            width: '15vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
+
+        anime({
+            targets: '.block-9h',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
+            
+        anime({
+            targets: '.block-18d',
+            opacity: 1,
+            width: '18vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        //■■以外
+        //■んで■■った
+        //■■溜めで
+        
+        anime({
+            targets: '.block-16a',
+            opacity: 1,
+            width: '16vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+        
+        anime({
+            targets: '.block-9i',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        anime({
+            targets: '.block-16b',
+            opacity: 1,
+            width: '16vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        anime({
+            targets: '.block-16c',
+            opacity: 1,
+            width: '16vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        //■■も■■も
+        //■■も
+        //伝えられなきゃ
+
+        anime({
+            targets: '.block-17c',
+            opacity: 1,
+            width: '17vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            delay: 0,
+            });  
+
+
+        anime({
+            targets: '.block-17d',
+            opacity: 1,
+            width: '17vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            delay: 500,
+            });
+
+        anime({
+            targets: '.block-17e',
+            opacity: 1,
+            width: '17vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            delay: 1000,
+            });
+
+        //■んでも
+        //■んでも
+        //■■切れないから
+
+        anime({
+            targets: '.block-9j',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
+
+        anime({
+            targets: '.block-9k',
+            opacity: 1,
+            width: '9vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
+
+        anime({
+            targets: '.block-17f',
+            opacity: 1,
+            width: '17vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
     
-    anime({
-        targets: '.block-10',
-        opacity: 1,
-        width: '8vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        //世界に送る
+        //黒塗りの
+        //ラブレター
+        anime({
+            targets: '.block-45a',
+            opacity: 1,
+            width: '45vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
 
-    //█かれた
-    //█違い
-    //██の詩
-    anime({
-        targets: '.block-11',
-        opacity: 1,
-        width: '9vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        anime({
+            targets: '.block-35a',
+            opacity: 1,
+            width: '35vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            });  
 
-    anime({
-        targets: '.block-12',
-        opacity: 1,
-        width: '18vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        anime({
+            targets: '.block-45b',
+            opacity: 1,
+            width: '45vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            }); 
 
-    
-    anime({
-        targets: '.block-13',
-        opacity: 1,
-        width: '16vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
-    
-    //世界に送る<br>黒塗りの<br>ラブレター
-    anime({
-        targets: '.block-14',
-        opacity: 1,
-        width: '45vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        }); 
+        //ending
 
-    anime({
-        targets: '.block-15',
-        opacity: 1,
-        width: '35vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        anime({
+            targets: '.block-25a',
+            opacity: 1,
+            width: '25vw',
+            easing: 'easeOutExpo',
+            duration: 4000,
+            }); 
 
-    anime({
-        targets: '.block-16',
-        opacity: 1,
-        width: '25vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        }); 
+        anime({
+            targets: '.block-35b',
+            opacity: 1,
+            width: '35vw',
+            easing: 'easeOutExpo',
+            duration: 4000,
+            });  
 
-    anime({
-        targets: '.block-17',
-        opacity: 1,
-        width: '35vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
-
-    anime({
-        targets: '.block-18',
-        opacity: 1,
-        width: '18vw',
-        easing: 'easeOutExpo',
-        duration: 500,
-        });  
+        anime({
+            targets: '.block-18e',
+            opacity: 1,
+            width: '18vw',
+            easing: 'easeOutExpo',
+            duration: 4000,
+            });  
 }
 }
