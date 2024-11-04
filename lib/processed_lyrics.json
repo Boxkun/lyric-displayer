@@ -215,9 +215,19 @@
         "isNew": true
     },
     {
-        "text": "<span class=\"block-17c\"></span>も<span class=\"block-17d\"></span>も<br><span class=\"block-17e\"></span>も",
-        "beats": 4,
+        "text": "<span class=\"block-17c\"></span>も",
+        "beats": 1.33,
         "isNew": false
+    },
+    {
+        "text": "<span class=\"block-17d\"></span>も",
+        "beats": 1.33,
+        "isNew": true
+    },
+    {
+        "text": "<br><span class=\"block-17e\"></span>も",
+        "beats": 1.33,
+        "isNew": true
     },
     {
         "text": "<br>伝えられなきゃ",

@@ -1,4 +1,4 @@
-## 1031
+# 1031
 
 1. adapt showlyric
    1. take in a parameter like "isNew" (boolean)

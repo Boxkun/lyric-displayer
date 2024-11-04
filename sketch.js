@@ -339,7 +339,7 @@ function showLyric(lyric, isNew) {
             width: '17vw',
             easing: 'easeOutExpo',
             duration: 500,
-            delay: 0,
+            // delay: 0,
             });  
 
 
@@ -349,7 +349,7 @@ function showLyric(lyric, isNew) {
             width: '17vw',
             easing: 'easeOutExpo',
             duration: 500,
-            delay: 500,
+            // delay: 500,
             });
 
         anime({
@@ -358,7 +358,7 @@ function showLyric(lyric, isNew) {
             width: '17vw',
             easing: 'easeOutExpo',
             duration: 500,
-            delay: 1000,
+            // delay: 1000,
             });
 
         //■んでも
