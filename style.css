@@ -57,7 +57,7 @@ audio {
   filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
   width: 70%;
   height: 70px;
-  z-index: 30;
+  z-index: 50;
 }
 
 span {
@@ -73,7 +73,7 @@ span {
   height: 100%;
   background-color: black;
   opacity: 1;
-  z-index: 50;
+  z-index: 30;
   transition: opacity 1s ease;
   pointer-events: none; /* 避免干扰点击事件 */
 }
