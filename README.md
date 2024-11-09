@@ -1,41 +1,79 @@
 # Letter to the Black World, but in JavaScript
 
-原pv：黒塗り世界宛て書簡／重音テト（Letter to the Black World / Kasane Teto）- フロクロ
-https://www.youtube.com/watch?v=8BekVGwSX3c
+Original PV: [Letter to the Black World / Kasane Teto - フロクロ](https://www.youtube.com/watch?v=8BekVGwSX3c)
 
-## deployment
+## Deployment
 
-按下enter播放
-https://n3xta.github.io/lyric-displayer/
+Press Enter to play  
+[https://n3xta.github.io/lyric-displayer/](https://n3xta.github.io/lyric-displayer/)
+
+## showLyric Logic
+
+1. Pass in `lyric` and check the `isNew` property
+   - If `isNew` is `false`, clear all `<span>` (or `<div>`) elements on the screen
+   - If `isNew` is `true`, skip clearing
+
+2. Process `lyric` by splitting it into `<span>` elements
+   - Use a regular expression to find all `<br>` and `<span>` tags. The `split` function will retain the matched tags after splitting.
+     - Match `<br>`
+     - `<span[^>]*>.*?<\/span>` matches all `<span>` tags
+       - `<span[^>]*>` matches the opening part of the `<span>` tag with all attributes
+       - `.*?` matches any content within the tag (non-greedy)
+   - Use `.map(part => { ... })` to iterate over each split part
+     - `if (part === '<br>')`: return `<br>` directly to keep HTML line breaks
+     - `else if (part.match(/<span[^>]*>.*?<\/span>/))`: if wrapped in `<span>`, retain it as is
+     - `else`: for plain text
+       - Use `split('')` to break the text string into individual characters
+       - Wrap each character in `<span class="${spanClass}">` to encapsulate each character in a `<span>` tag
+       - `spanClass` is a variable representing the CSS class to apply
+   - Finally, use `.join('')` to concatenate the result returned by `map` into a complete string
+
+3. Decide whether to append the new content based on the value of `isNew`
+   - Use `lyricDiv.html()` to get the current HTML content of the `lyricDiv` element
+     - If `isNew` is `true`, append the new content `chars` to the existing content
+     - If `isNew` is `false`, replace the original content with `chars`
+
+4. Animation handling
+   - Regardless of the value of `isNew`, add the `animate-me` class to new characters (apply animation each time new characters are added to `lyricDiv`)
+   - The animation targets all elements with the `animate-me` class, including newly added and appended content. Once the animation completes, remove the `animate-me` class.
+
+---
+
+# Letter to the Black World, but in JavaScript
+
+原 PV：[黒塗り世界宛て書簡／重音テト（Letter to the Black World / Kasane Teto）- フロクロ](https://www.youtube.com/watch?v=8BekVGwSX3c)
+
+## Deployment
+
+按下 Enter 播放  
+[点这里](https://n3xta.github.io/lyric-displayer/)
 
 ## showLyric 逻辑
-1. 先传入lyric，判断`isNew` property
-   1. 如果为false即清空屏幕上所有的span（div）
-   2. 如果为true，略过清空
-2. 对lyric进行拆span处理
-   1. 正则表达式：找到所有的`<br>`和`<span>`，`split`函数会在分割后保留匹配的标签
-      1. 匹配`<br>`
-      2. `<span[^>]*>.*?<\/span>`：匹配所有`<span>`
-         1. `<span[^>]*>`匹配`<span>`标签开头部分（所有block）以及所有属性
-         2. `.*?`匹配标签中的任意内容（非贪婪）
-   2. `.map(part => { ... })`
-      1. map函数遍历每个分割后的部分
-      2. `if (part === '<br>')`
-         1. 直接返回`<br>`，保留html换行
-      3. `else if (part.match(/<span[^>]*>.*?<\/span>/))`
-         1. 说明它是一个`<span>`标签包裹的内容
-         2. 不做任何处理
-      4. `else`
-         1. 说明它是纯文本
-            1. 使用`split('')`将该文本字符串拆分成单个字符
-            2. 对每个字符加上`<span class="${spanClass}">`，这样每个字符会被包裹在`<span>`标签中
-            3. `spanClass`是一个变量，代表要添加的样式类
-      5. `.join('')`
-         1. 最后将`map`返回的结果拼接成一个完整的字符串
-3. 根据`isNew`的值决定是否将新内容追加
-      1. `lyricDiv.html()`用来获取lyricDiv元素的当前HTML内容
-   1. 如果为true，将新的歌词内容chars追加到已有内容的后面
-   2. 如果为false，则用chars直接覆盖原有内容
+
+1. 传入 `lyric`，并判断 `isNew` 属性
+   - 如果为 `false`，即清空屏幕上所有的 `<span>`（或 `<div>`）
+   - 如果为 `true`，略过清空
+
+2. 对 `lyric` 进行拆分并包裹在 `<span>` 中
+   - 使用正则表达式找到所有的 `<br>` 和 `<span>` 标签，`split` 函数在分割后保留匹配的标签。
+     - 匹配 `<br>`
+     - `<span[^>]*>.*?<\/span>` 匹配所有 `<span>` 标签
+       - `<span[^>]*>` 匹配 `<span>` 标签的开头部分及所有属性
+       - `.*?` 匹配标签中的任意内容（非贪婪模式）
+   - 使用 `.map(part => { ... })` 遍历每个分割的部分
+     - `if (part === '<br>')`：直接返回 `<br>`，保留 HTML 换行
+     - `else if (part.match(/<span[^>]*>.*?<\/span>/))`：如果是 `<span>` 标签包裹的内容，保留原样
+     - `else`：处理纯文本
+       - 使用 `split('')` 将文本字符串拆分成单个字符
+       - 对每个字符加上 `<span class="${spanClass}">`，将每个字符包裹在 `<span>` 标签中
+       - `spanClass` 变量代表要添加的样式类
+   - 最后用 `.join('')` 将 `map` 返回的结果拼接成一个完整的字符串
+
+3. 根据 `isNew` 的值决定内容的追加方式
+   - 使用 `lyricDiv.html()` 获取 `lyricDiv` 元素的当前 HTML 内容
+     - 如果为 `true`，将新内容 `chars` 追加到已有内容后
+     - 如果为 `false`，直接用 `chars` 覆盖原有内容
+
 4. 动画效果处理
-   1. 无论isNew的值，都给新字符添加animate-me类（每次有新字符添加到lyricDiv时，都对其应用动画）
-   2. 动画针对所有animate-me类的元素，包括清空后添加的新内容&追加，完成后，移除
+   - 无论 `isNew` 的值，都给新字符添加 `animate-me` 类（每次有新字符添加到 `lyricDiv` 时，应用动画）
+   - 动画应用在所有具有 `animate-me` 类的元素上，包括清空后添加的新内容和追加的内容，动画完成后移除 `animate-me` 类
