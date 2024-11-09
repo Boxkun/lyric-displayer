@@ -14,11 +14,11 @@ body, html {
 }
 
 /* #overlay-image {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 90%;
-  height: 90%;
+  width: 85%;
+  height: 100%;
   opacity: 0.5;
   z-index: 20;
   pointer-events: none; 
@@ -27,12 +27,10 @@ body, html {
 
 div {
   position: absolute;
-  /* top: 14.9vh; */
-  top: 7.6vw;
-  left: 7vw;
-  font-size: 9.43vw;
-  /* line-height: 22.2vh; */
-  line-height: 11.25vw; /* or 165 px*/
+  top: 6.9vw;
+  left: 6.6vw;
+  font-size: 8.9vw;
+  line-height: 10.65vw;
   letter-spacing: -0.3vw;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
@@ -82,8 +80,17 @@ span[class^="block-"] {
   opacity: 1;
   background-color: black;
   width: 0;
-  height: 9.5vw;
-  /* -ms-transform: translateY(50%); */
-  transform: translateY(15%);
+  height: 9.1vw;
+  transform: translateY(1.2vw);
+  display: inline-block;
+}
+
+.credits {
+  position: relative;
+  top: 0;
+  left: 0.7vw;
+  font-size: 3.8vw;
+  line-height: 4.5vw;
+  letter-spacing: -0.2vw;
   display: inline-block;
 }

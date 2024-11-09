@@ -8,6 +8,8 @@ let beatDuration = 60 / bpm;
 let totalBeatsElapsed = 0;
 
 let overlayRemoved = false;
+let enterPressed = false;
+let endingOverlayShown = false;
 
 function setup() {
 
@@ -20,13 +22,18 @@ function setup() {
     .catch(error => console.error("Error loading lyrics:", error));
 
     audioEl = createAudio('https://raw.githubusercontent.com/n3xta/image-hosting/main/audio/letter_to_the_black_world.mp3');
-    audioEl.showControls();
+    //audioEl.showControls();
   
     lyricDiv = createDiv('');
-    lyricDiv.addClass('lyric-text');
+    lastLyricDiv = createDiv('');
   
-    audioEl.play();
-    setInterval(updateLyrics, 100); 
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !enterPressed) {
+            enterPressed = true;
+            audioEl.play();
+            setInterval(updateLyrics, 100);
+        }
+    });
 
     createCanvas(windowWidth, windowHeight);
     background(223,223,223,255);
@@ -48,45 +55,49 @@ function updateLyrics() {
             accumulatedBeats += lyrics[i].beats;
             if (totalBeats < accumulatedBeats) {
             let lyricObj = lyrics[i];
-            let isNew = lyricObj.isNew;
-            showLyric(lyricObj.text, isNew); // 为了把isNew传入，把原本的直接调用lyrics[i]变成了lyricsObj
+            showLyric(lyricObj.text, lyricObj.isNew, lyricObj.overlayBlocks, lyricObj.credits); // 为了把各个flag传入，把原本的直接调用lyrics[i]变成了lyricsObj
             break;
             }
         }
 }
 
-// function showLyric(lyric) {
-//   if (lyric !== currentLyric) {
-//     currentLyric = lyric;
-//     lyricDiv.html('');
-//   }
-// }
-
-function showLyric(lyric, isNew) {
+function showLyric(lyric, isNew, overlayBlocks, credits) {
     console.log('showLyric called with:', { lyric, isNew });
     if (lyric !== currentLyric) {
         currentLyric = lyric;
         if (!isNew) {
             console.log('Clearing lyricDiv because isNew is false');
             lyricDiv.html(''); 
+            lastLyricDiv.html(''); 
         }
+
+        let chars;
 
         // 统一使用 'animate-me' 类，无论 isNew 的值
         let spanClass = 'animate-me';
+        if (!credits){
+            chars = lyric.split(/(<br>|<span[^>]*>.*?<\/span>)/).map(part => {
+                if (part === '<br>') {
+                    return part;
+                } else if (part.match(/<span[^>]*>.*?<\/span>/)) {
+                    return part;
+                } else {
+                    return part.split('').map(char => {
+                        return `<span class="${spanClass}">${char}</span>`;
+                    }).join('');
+                }
+            }).join('');
+        } else {
+            chars = lyric;
+            setTimeout(()=>{
+                let credits = document.querySelector(".credits");
+                credits.style.display = "none";
+            },beatDuration*1000*16)
+        }
 
-        let chars = lyric.split(/(<br>|<span[^>]*>.*?<\/span>)/).map(part => {
-            if (part === '<br>') {
-                return part;
-            } else if (part.match(/<span[^>]*>.*?<\/span>/)) {
-                return part;
-            } else {
-                return part.split('').map(char => {
-                    return `<span class="${spanClass}">${char}</span>`;
-                }).join('');
-            }
-        }).join('');
-
-        if (isNew) {
+        if (overlayBlocks) {
+            lastLyricDiv.html(chars);
+        } else if (isNew) {
             lyricDiv.html(lyricDiv.html() + chars);
         } else {
             lyricDiv.html(chars);
@@ -398,6 +409,7 @@ function showLyric(lyric, isNew) {
             width: '45vw',
             easing: 'easeOutExpo',
             duration: 500,
+            delay: 0,
             }); 
 
         anime({
@@ -406,6 +418,7 @@ function showLyric(lyric, isNew) {
             width: '35vw',
             easing: 'easeOutExpo',
             duration: 500,
+            delay: beatDuration*1000,
             });  
 
         anime({
@@ -414,6 +427,7 @@ function showLyric(lyric, isNew) {
             width: '45vw',
             easing: 'easeOutExpo',
             duration: 500,
+            delay: beatDuration*1000*2,
             }); 
 
         //ending
@@ -421,7 +435,7 @@ function showLyric(lyric, isNew) {
         anime({
             targets: '.block-25a',
             opacity: 1,
-            width: '25vw',
+            width: '24.65vw',
             easing: 'easeOutExpo',
             duration: 4000,
             }); 
@@ -429,7 +443,7 @@ function showLyric(lyric, isNew) {
         anime({
             targets: '.block-35b',
             opacity: 1,
-            width: '35vw',
+            width: '34.4vw',
             easing: 'easeOutExpo',
             duration: 4000,
             });  
@@ -437,9 +451,10 @@ function showLyric(lyric, isNew) {
         anime({
             targets: '.block-18e',
             opacity: 1,
-            width: '18vw',
+            width: '17.48vw',
             easing: 'easeOutExpo',
             duration: 4000,
             });  
+    }
 }
-}
+

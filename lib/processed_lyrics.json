@@ -255,19 +255,10 @@
         "isNew": false
     },
     {
-        "text": "<span class=\"block-45a\"></span>",
-        "beats": 1,
-        "isNew": false
-    },
-    {
-        "text": "<br><span class=\"block-35a\"></span>",
-        "beats": 1,
-        "isNew": true
-    },
-    {
-        "text": "<br><span class=\"block-45b\"></span>",
-        "beats": 2,
-        "isNew": true
+        "text": "<span class=\"block-45a\"></span><br><span class=\"block-35a\"></span><br><span class=\"block-45b\"></span>",
+        "beats": 4,
+        "isNew": true,
+        "overlayBlocks": true
     },
     {
         "text": " ",
@@ -280,8 +271,14 @@
         "isNew": false
     },
     {
-        "text": "歌<br>重音テト",
-        "beats": 32,
-        "isNew": true
+        "text": "<div class=\"credits\">歌<br>重音テト</div>",
+        "beats": 30,
+        "isNew": true,
+        "credits": true
+    },
+    {
+        "text": " ",
+        "beats": 1,
+        "isNew": false
     }
 ]
