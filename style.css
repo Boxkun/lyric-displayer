@@ -37,11 +37,6 @@ div {
   font-feature-settings: 'palt';
 }
 
-/*
-<uniquifier>: Use a unique and descriptive class name
-<weight>: Use a value from 100 to 900
-*/
-
 .noto-sans-jp {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
