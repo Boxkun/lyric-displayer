@@ -1,6 +1,7 @@
 # Letter to the Black World, but in JavaScript
 
 Original PV: [Letter to the Black World / Kasane Teto - フロクロ](https://www.youtube.com/watch?v=8BekVGwSX3c)
+Credit: Frog96
 
 ## Deployment
 
