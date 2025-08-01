@@ -13,7 +13,7 @@ let endingOverlayShown = false;
 
 function setup() {
 
-    fetch('lib/processed_lyrics.json')
+    fetch('lib/processed_lyrics_hachimi.json')
     .then(response => response.json())
     .then(data => {
         lyrics = data;
@@ -21,7 +21,7 @@ function setup() {
     })
     .catch(error => console.error("Error loading lyrics:", error));
 
-    audioEl = createAudio('https://raw.githubusercontent.com/n3xta/image-hosting/main/audio/letter_to_the_black_world.mp3');
+    audioEl = createAudio('黒塗り世界宛て基米.mp3');
     //audioEl.showControls();
   
     lyricDiv = createDiv('');
@@ -411,6 +411,14 @@ function showLyric(lyric, isNew, overlayBlocks, credits) {
             duration: 500,
             delay: 0,
             }); 
+        anime({
+            targets: '.block-70a',
+            opacity: 1,
+            width: '70vw',
+            easing: 'easeOutExpo',
+            duration: 500,
+            delay: 0,
+        });
 
         anime({
             targets: '.block-35a',

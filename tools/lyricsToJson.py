@@ -28,7 +28,34 @@ lyrics_text = """
 世界に送る黒塗りのラブレター
 """
 
-lyrics_lines = [line.strip() for line in lyrics_text.splitlines() if line.strip()]
+lyrics_text_mod = '''
+██████基米纳梅鲁多海亚库那路
+█佑大佑大喔马吉里曼波曼波基哈梅
+密集哈喔马吉里锕系噶███曼波咂布佑大佑大
+██海海亚库纳梅鲁多密集噶
+咂布基米海压库喔马吉里阿希阿希多梅鲁纳佑大曼波雅库吉里
+纳梅鲁多哈吉哈吉那枚噶多西海牙达波达波达波达波达
+
+积极那美路多海亚库那路友达喔玛玛吉利
+喔马吉里曼波哈希噶哈露哈露哈露哈露友达密集哈
+锕系噶█纳梅鲁多哦███海压库纳梅鲁多阿西积极钆
+曼波曼波海压库纳梅鲁多密集哈
+
+咂布吉利海压库喔马吉里阿希阿希
+多梅鲁纳友达曼波喔码激励
+曼波海亚路达梅达多米基噶哈吉哈吉→→↑→↑↑↑↑↑
+
+█下来█搞搞██出示█带好兴奋劲
+█二次元█是何方的██基米
+██欸哟█欸██欸哟█小白手套哟
+██嘿█一拳打██妈妈酱
+██Son of a█榴莲██你██开大
+██老██登██真真假假假假真真
+█你的█素质██怎么这么低
+哈基米喔纳梅鲁多喔马吉里海亚库纳鲁
+'''
+
+lyrics_lines = [line.strip() for line in lyrics_text_mod.splitlines() if line.strip()]
 
 beats_per_line = 16
 lyrics_json = [{"text": line, "beats": beats_per_line} for line in lyrics_lines]

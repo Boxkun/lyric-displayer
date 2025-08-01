@@ -1,3 +1,9 @@
+# 黒塗り世界宛て基米
+Derivative work of Letter to the Black World, using n3xta/lyric-displayer to generate PV.
+
+致涂黑世界的书信的衍生产物，使用 n3xta/lyric-displayer 生成了PV。
+
+
 # Letter to the Black World, but in JavaScript
 
 Original PV: [Letter to the Black World / Kasane Teto - フロクロ](https://www.youtube.com/watch?v=8BekVGwSX3c)
