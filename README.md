@@ -1,7 +1,12 @@
 # 黒塗り世界宛て基米
 Derivative work of Letter to the Black World, using n3xta/lyric-displayer to generate PV.
 
+Audio file in the repostitory and video generated and posted is licensed under CC0.
+
 致涂黑世界的书信的衍生产物，使用 n3xta/lyric-displayer 生成了PV。
+
+仓库内的音频文件与使用此代码生成并发布的视频使用 CC0 授权。
+
 
 
 # Letter to the Black World, but in JavaScript
